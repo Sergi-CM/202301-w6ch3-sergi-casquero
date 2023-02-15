@@ -17,3 +17,18 @@ const welcome = async (): Promise<void> => {
 };
 
 await welcome();
+
+const askName = async (): Promise<void> => {
+  const answers = await inquirer.prompt({
+    name: "player-name",
+    type: "input",
+    message: "What's your name, human?",
+    default() {
+      return "Human Player";
+    },
+  });
+
+  playerName = answers["player-name"];
+};
+
+await askName();
